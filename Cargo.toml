@@ -1,0 +1,6 @@
+[package]
+name = "hex_grid"
+version = "0.1.0"
+authors = ["Nathan Fox <fuchsnj@gmail.com>"]
+
+[dependencies]
