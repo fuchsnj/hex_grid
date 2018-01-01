@@ -21,6 +21,7 @@ extern crate hex_grid;
 
 ```rust
 use hex_grid::*;
+use std::collections::HashMap;
 
 struct CustomData{
     //..whatever data you want associated with each tile
@@ -36,7 +37,7 @@ for coord in coords {
     grid.insert(coord, data);
 }
 
-//get the tile that is to the right 2 tiles of the center tile
+//get the tile that is to the right 2 tiles from the center tile
 let tile:Option<CustomData> = grid.get(CENTER + RIGHT*2);
 
 ```
