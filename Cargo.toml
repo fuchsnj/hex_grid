@@ -2,5 +2,11 @@
 name = "hex_grid"
 version = "0.1.0"
 authors = ["Nathan Fox <fuchsnj@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/fuchsnj/hex_grid"
+license = "MIT/Apache-2.0"
+description = """
+A library to easily work with 2d hex grids of arbitrary shapes
+"""
 
 [dependencies]
