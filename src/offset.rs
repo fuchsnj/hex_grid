@@ -13,7 +13,7 @@ pub const DOWN_LEFT: Offset = Offset { x: -1, y: 1 };
 #[derive(Hash, Eq, PartialEq, Copy, Clone, Debug)]
 pub struct Offset {
     pub x: i32,
-    pub y: i32
+    pub y: i32,
 }
 
 impl Offset {
@@ -51,6 +51,11 @@ impl Offset {
             y: i32::max(i32::min(self.y, 1), -1),
         }
     }
+
+    pub fn distance(&self) -> u32 {
+        let z = -self.x - self.y;
+        (self.x.abs() + self.y.abs() + z.abs()) as u32 / 2
+    }
 }
 
 
@@ -67,7 +72,7 @@ impl<O: Into<Offset>> Add<O> for Offset {
         let offset = offset.into();
         Offset {
             x: self.x + offset.x,
-            y: self.y + offset.y
+            y: self.y + offset.y,
         }
     }
 }
@@ -79,7 +84,7 @@ impl<O: Into<Offset>> Sub<O> for Offset {
         let offset = offset.into();
         Offset {
             x: self.x - offset.x,
-            y: self.y - offset.y
+            y: self.y - offset.y,
         }
     }
 }
@@ -101,7 +106,7 @@ impl<I: Into<i32>> Mul<I> for Offset {
         let value = value.into();
         Offset {
             x: self.x * value,
-            y: self.y * value
+            y: self.y * value,
         }
     }
 }
@@ -146,4 +151,16 @@ fn test_fill_hex() {
     ]);
     assert_eq!(Offset::fill_hex(2).len(), 1 + 6 * 3);
     assert_eq!(Offset::fill_hex(3).len(), 1 + 6 * 6);
+}
+
+#[test]
+fn test_distance() {
+    assert_eq!(ZERO_OFFSET.distance(), 0);
+    assert_eq!(RIGHT.distance(), 1);
+    assert_eq!(LEFT.distance(), 1);
+    assert_eq!(UP_RIGHT.distance(), 1);
+    assert_eq!(UP_LEFT.distance(), 1);
+    assert_eq!(DOWN_RIGHT.distance(), 1);
+    assert_eq!(DOWN_LEFT.distance(), 1);
+    assert_eq!((UP_RIGHT + RIGHT + RIGHT).distance(), 3);
 }
