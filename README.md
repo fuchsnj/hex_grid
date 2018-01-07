@@ -1,4 +1,8 @@
 # Hex Grid
+[![Build Status](https://travis-ci.org/fuchsnj/hex_grid.svg?branch=master)](https://travis-ci.org/fuchsnj/hex_grid)
+[![crates.io](https://img.shields.io/crates/v/pubsub.svg)](https://crates.io/crates/hex_grid)
+
+[Documentation](https://docs.rs/hex_grid)
 
 A library to easily work with 2d hex grids of arbitrary shapes
 
