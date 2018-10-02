@@ -6,7 +6,7 @@ pub struct PixelOrientation {
 
 impl PixelOrientation {
     /**
-     * Convert coordinates from right_increasing/up_increasing to this orientation
+     * Convert coordinates between right_increasing/up_increasing and the given orientation
      */
     pub(crate) fn orient(&self, (x, y): (f32, f32)) -> (f32, f32) {
         let x = if self.right_increasing {
