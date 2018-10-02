@@ -4,7 +4,8 @@
 
 [Documentation](https://docs.rs/hex_grid)
 
-A library to easily work with 2d hex grids of arbitrary shapes
+A library to easily work with 2d hex grids of arbitrary shapes.
+This library currently only supports "Pointy Top" hexagons.
 
 ## Usage
 
