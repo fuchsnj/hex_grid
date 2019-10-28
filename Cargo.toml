@@ -1,6 +1,6 @@
 [package]
 name = "hex_grid"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["Nathan Fox <fuchsnj@gmail.com>"]
 readme = "README.md"
 repository = "https://github.com/fuchsnj/hex_grid"
