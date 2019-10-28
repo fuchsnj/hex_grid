@@ -8,11 +8,15 @@ pub const CENTER: Coordinate = Coordinate { x: 0, y: 0 };
 
 #[derive(Hash, Eq, PartialEq, Copy, Clone, Debug)]
 pub struct Coordinate {
-    x: i32,
-    y: i32,
+    pub x: i32,
+    pub y: i32,
 }
 
 impl Coordinate {
+    pub fn z(&self) -> i32 {
+        Self::calculate_3rd((self.x, self.y))
+    }
+
     fn x32(&self) -> f32 {
         self.x as f32
     }
@@ -138,9 +142,9 @@ fn test_from_pixel() {
     let hex_size = HexSize::from_regular_height(1.0);
     let pixel_orientation = PixelOrientation { right_increasing: true, up_increasing: true };
 
-    assert_eq!(Coordinate::from_pixel((0.0,0.0), hex_size, pixel_orientation), CENTER);
+    assert_eq!(Coordinate::from_pixel((0.0, 0.0), hex_size, pixel_orientation), CENTER);
     assert_eq!(Coordinate::from_pixel((0.8660254, 0.0), hex_size, pixel_orientation), CENTER + RIGHT);
     assert_eq!(Coordinate::from_pixel((-0.8660254, 0.0), hex_size, pixel_orientation), CENTER + LEFT);
     assert_eq!(Coordinate::from_pixel((0.4330127, 0.75), hex_size, pixel_orientation), CENTER + UP_RIGHT);
-    assert_eq!(Coordinate::from_pixel((-0.8660254, -1.5), hex_size, pixel_orientation), CENTER + DOWN_LEFT*2);
+    assert_eq!(Coordinate::from_pixel((-0.8660254, -1.5), hex_size, pixel_orientation), CENTER + DOWN_LEFT * 2);
 }
